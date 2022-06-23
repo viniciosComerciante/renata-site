@@ -1,0 +1,49 @@
+.header{
+  width: 100%;
+}
+.container{
+  max-width: 1140px;
+  height: 75px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav{
+    font-weight: 700;
+    color: var(--gray-500);
+    line-height: 19px;
+    font-size: 14px;
+
+    a{
+      margin-right: 40px;
+      span{
+        background-color: var(--pink-200);
+        top: 8px;
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 1.5rem;
+      }
+    }
+
+
+
+
+
+    img{
+      height: 16px;
+      width: 16px;
+    }
+
+  }
+  img{
+    height: 47px;
+  }
+}
+
