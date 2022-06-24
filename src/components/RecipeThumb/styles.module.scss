@@ -36,7 +36,18 @@
         font-weight: 700;
       }
 
+      .likes{
+        color: var(--gray-300);
+        display: flex;
+        align-items: center;
+        font-family: 'Lato', sans-serif;
+        img{
+          margin-right: 0.125rem;
+        }
+      }
     }
+
+
 
   }
 

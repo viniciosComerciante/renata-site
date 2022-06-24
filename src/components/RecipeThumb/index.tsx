@@ -16,7 +16,10 @@ export function RecipeThumb({imgUrl}:RecipeThumbProps){
       <div className={styles.recipeDescription}>
         <div className={styles.header}>
           <span>Doces e Emoções</span>
-          s2
+          <span className={styles.likes}>
+          <img src="/images/icon-heart.svg" alt="icon heart" />
+          195
+          </span>
         </div>
         <h2>Bolo Piscininha de Cenoura</h2>
         <p>Bolo feito com Mistura para Bolo Renata sabor cenoura, coberto com brigadeiro cremoso.</p>
