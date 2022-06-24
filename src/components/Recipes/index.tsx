@@ -13,6 +13,10 @@ export function Recipes(){
         <RecipeThumb></RecipeThumb>
         <RecipeThumb></RecipeThumb>
         <RecipeThumb></RecipeThumb>
+        <RecipeThumb></RecipeThumb>
+        <RecipeThumb></RecipeThumb>
+        <RecipeThumb></RecipeThumb>
+        <RecipeThumb></RecipeThumb>
       </div>
     </section>
   )
