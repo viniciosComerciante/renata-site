@@ -28,7 +28,7 @@ export function Header(){
         <header className={styles.header}>
             <div className={styles.container}>
                 <img src="/images/logo-renata.svg" alt="renata logo" className={styles.logo}/>
-                <nav>
+                <nav className={styles.nav}>
                     <a href="#">Inspirado no MasterChef Brasil</a>
                     <a href="#">Emoção em Família</a>
                     <a href="#">É Pra Já</a>

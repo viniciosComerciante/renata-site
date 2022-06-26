@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+  width: 100vw;
+}
+
 :root{
     //backgrounds
     --white: #fff;
@@ -13,7 +17,7 @@
     --gray-300: #8c8c8c;
     --gray-200:#BBC2BF;
     //
-    --beige-100: ##F0C188;
+    --beige-100: #F0C188;
     --beige-500: #9D692C;
 
 

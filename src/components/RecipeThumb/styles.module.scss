@@ -1,34 +1,38 @@
-.thumb{
-  max-width: 350px;
-  margin-bottom: 85px;
+.thumb {
+  display: flex;
+}
 
-  img{
+.wrapper {
+  max-width: 100%;
+  margin-bottom: 85px;
+  justify-content: center;
+
+  .backgroundImg {
     border-radius: 11px;
+    width: 350px;
+    height: 330;
   }
 
-  &:hover .recipeDescription{
+  &:hover .recipeDescription {
     margin-top: -60px;
   }
 
-  .recipeDescription{
+  .recipeDescription {
     background-color: var(--white);
     max-width: 320px;
+    margin-left: 15px;
     border-radius: 5.5px;
     margin-top: -50px;
-    margin-left: 15px;
-    margin: -50 auto 0 auto;
-    padding: 15px;
+    padding: 15px 20px;
     position: relative;
     box-shadow: 0 11px 22px 0 rgb(0 0 0 / 15%);
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
-
-    .header{
-
+    .header {
       display: flex;
       justify-content: space-between;
 
-      span{
+      span {
         color: var(--orange-500);
         font-family: 'Lato', sans-serif;
         text-transform: uppercase;
@@ -36,21 +40,80 @@
         font-weight: 700;
       }
 
-      .likes{
+      .likes {
         color: var(--gray-300);
         display: flex;
         align-items: center;
         font-family: 'Lato', sans-serif;
-        img{
+        img {
           margin-right: 0.125rem;
         }
       }
     }
+  }
+}
 
+@media (min-width: 992px) and(max-width:1139px) {
+  .wrapper {
+    .backgroundImg {
+      max-width: 290px;
+      object-fit: cover;
+    }
 
+    .recipeDescription {
+      width: 260px;
+    }
+  }
+}
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .thumb {
+    display: flex;
+    justify-content: center;
   }
 
+  .wrapper {
+    .backgroundImg {
+      width: 330px;
+    }
 
-
+    .recipeDescription {
+      max-width: 300px;
+      margin-left: 15px;
+    }
+  }
 }
+
+@media (max-width: 767px) {
+  .thumb {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 60px;
+    justify-content: center;
+  }
+  .wrapper {
+    max-width: 510px;
+    height: 330px;
+    flex: 1;
+    .backgroundImg {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+    }
+
+    .recipeDescription {
+      position: relative;
+      max-width: 100%;
+      margin-left: 15px;
+      margin-right: 15px;
+
+
+
+
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
