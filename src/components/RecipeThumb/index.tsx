@@ -3,11 +3,15 @@ import Image from 'next/image'
 
 
 interface RecipeThumbProps{
-  imgUrl?: string
+  imgUrl?: string;
+  category: string;
+  likes: number;
+  title:string;
+  subtitle: string;
 }
 
 
-export function RecipeThumb({imgUrl}:RecipeThumbProps){
+export function RecipeThumb({imgUrl,category, likes, title,subtitle}:RecipeThumbProps){
   return(
     <article className={styles.thumb}>
       <div className={styles.wrapper}>
@@ -15,14 +19,14 @@ export function RecipeThumb({imgUrl}:RecipeThumbProps){
 
       <div className={styles.recipeDescription}>
         <div className={styles.header}>
-          <span>Doces e Emoções</span>
+          <span>{category}</span>
           <span className={styles.likes}>
           <img src="/images/icon-heart.svg" alt="icon heart" />
-          195
+          {likes}
           </span>
         </div>
-        <h2>Bolo Piscininha de Cenoura</h2>
-        <p>Bolo feito com Mistura para Bolo Renata sabor cenoura, coberto com brigadeiro cremoso.</p>
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
       </div>
       </div>
     </article>

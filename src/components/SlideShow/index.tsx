@@ -1,4 +1,5 @@
 import { Slide } from 'react-slideshow-image';
+import { GetStaticProps } from 'next';
 import styles from './styles.module.scss';
 import 'react-slideshow-image/dist/styles.css'
 
@@ -59,4 +60,15 @@ export function SlideShow() {
       </Slide>
     </div>
   );
+}
+
+export const getStaticProps:GetStaticProps = async ()=>{
+
+  return {
+    props:{
+
+    },
+    revalidate: 60*60*24
+  }
+
 }
