@@ -11,25 +11,41 @@ interface RecipesRequest{
   result:Recipe[]
 }
 
-export function Header(){
+export const Header:React.FC = ()=>{
 
   const {changeRecipes} = useRecipes();
   const {data, setUrl} = useRequest<RecipesRequest>("");
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
 
   function handleChangeUrl(category: string){
-    setUrl("http://localhost:3008/api/v1/recipe/category/" + category);
+    setUrl("https://renata-api.herokuapp.com/api/v1/recipe/category/" + category);
   }
 
-  console.log(data);
+  function verifyScrollDirection(e){
+    setLastScrollTop(this.scrollY);
+    console.log("atual: "+lastScrollTop);
+    console.log("scroll: "+this.scrollY);
+    (this.scrollY >= lastScrollTop? setIsScrollingDown(true):setIsScrollingDown(false));
+  }
 
   useEffect(()=>{
-  if(!data) return;
-    changeRecipes(data.result)
+    if(!data) return;
+    changeRecipes(data.result);
   }, [data]);
 
 
+  useEffect(()=>{
+    window.addEventListener("scroll",verifyScrollDirection);
+
+    return ()=>{
+      window.removeEventListener("scroll", verifyScrollDirection);
+    }
+  },[setLastScrollTop, verifyScrollDirection])
+
+
     return(
-        <header className={styles.header}>
+        <header className={styles.header+" "+( isScrollingDown ? styles.scrollingDown :"")}>
             <div className={styles.container}>
                 <img src="/images/logo-renata.svg" alt="renata logo" className={styles.logo}/>
                 <nav className={styles.nav}>
@@ -59,9 +75,8 @@ export function Header(){
                     }}>Meus Favoritos
                       <span>0</span>
                     </a>
-                    <img src="/images/search.svg" alt="search recipe" />
                 </nav>
-
+                <img src="/images/search.svg" alt="search recipe" className={styles.searchIcon}/>
             </div>
         </header>
     )

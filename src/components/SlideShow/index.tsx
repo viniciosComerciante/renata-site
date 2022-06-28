@@ -36,8 +36,8 @@ export function SlideShow() {
   };
 
   return (
-    <div className="slideContainer">
-      <div className={styles.advertisement}> <img src='https://renata.com.br/assets/img/icons/icon-masterchef-w.svg' ></img>Somos patrocinadores oficiais do&nbsp;  <span>MasterChef Brasil</span></div>
+    <div className={"slideContainer "+styles.slideContainer}>
+      <div className={styles.advertisement}> <img src='https://renata.com.br/assets/img/icons/icon-masterchef-w.svg' ></img>Somos patrocinadores oficiais do MasterChef Brasil</div>
       <Slide {...properties}>
         {slideImages.map((slideImage, index) => (
           <div className={"each-slide "+styles.eachSlide} key={index}>
