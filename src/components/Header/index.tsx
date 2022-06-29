@@ -7,11 +7,15 @@ import {Recipe} from "../../pages/index";
 import styles from "./styles.module.scss";
 
 
+interface HeaderProps{
+  onRequestOpen: ()=>void;
+}
 interface RecipesRequest{
   result:Recipe[]
 }
 
-export const Header:React.FC = ()=>{
+
+export function Header({onRequestOpen}:HeaderProps){
 
   const {changeRecipes} = useRecipes();
   const {data, setUrl} = useRequest<RecipesRequest>("");
@@ -47,6 +51,7 @@ export const Header:React.FC = ()=>{
     return(
         <header className={styles.header+" "+( isScrollingDown ? styles.scrollingDown :"")}>
             <div className={styles.container}>
+                <img src="https://renata.com.br/assets/img/icons/icon-menu.svg" alt="icone menu hamburguer" onClick={onRequestOpen} className={styles.hamburguerIcon}/>
                 <img src="/images/logo-renata.svg" alt="renata logo" className={styles.logo}/>
                 <nav className={styles.nav}>
                     <a onClick={(e)=>{
