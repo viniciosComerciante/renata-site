@@ -28,8 +28,6 @@ export function Header({onRequestOpen}:HeaderProps){
 
   function verifyScrollDirection(e){
     setLastScrollTop(this.scrollY);
-    console.log("atual: "+lastScrollTop);
-    console.log("scroll: "+this.scrollY);
     (this.scrollY >= lastScrollTop? setIsScrollingDown(true):setIsScrollingDown(false));
   }
 
