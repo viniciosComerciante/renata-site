@@ -17,12 +17,18 @@
   justify-content: space-between;
   align-items: center;
 
-  .hamburguerIcon{
-    width: 21px;
-    height: 18px;
+
+  .hamburguerIconContainer{
+    padding: 15px 15px;
     display: none;
     cursor: pointer;
+    .hamburguerIcon{
+      width: 21px;
+      height: 18px;
+
+    }
   }
+
 
 
   nav{
@@ -96,7 +102,7 @@
   .container{
     max-width: 720px;
 
-    .hamburguerIcon{
+    .hamburguerIconContainer{
       display: block;
     }
 
@@ -112,7 +118,7 @@
     max-width: 100%;
     padding: 0 15px;
 
-    .hamburguerIcon{
+    .hamburguerIconContainer{
       display: block;
     }
     .nav{

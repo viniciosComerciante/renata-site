@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^6.2.1",
     "@types/react-modal": "^3.13.1",
     "axios": "^0.27.2",
     "framer-motion": "^6.3.16",
+    "install": "^0.13.0",
     "next": "^12.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

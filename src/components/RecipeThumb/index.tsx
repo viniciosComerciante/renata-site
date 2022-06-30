@@ -11,7 +11,7 @@ interface RecipeThumbProps{
 }
 
 
-export function RecipeThumb({imgUrl,category, likes, title,subtitle}:RecipeThumbProps){
+export const RecipeThumb:React.FC <RecipeThumbProps> = ({imgUrl,category, likes, title,subtitle})=>{
   return(
     <article className={styles.thumb}>
       <div className={styles.wrapper}>

@@ -4,19 +4,7 @@ import { RecipeThumb } from '../RecipeThumb';
 import { useRecipes } from '../../contexts/RecipesContext';
 import styles from './styles.module.scss';
 
-interface Recipe {
-  _id: string;
-  title: string;
-  category: string;
-  ingredients: string;
-  preparation: string;
-  author: string;
-  img: string;
-  active: boolean;
-  __v: number;
-}
-
-export function Recipes() {
+export const Recipes: React.FC = () => {
   const { recipes } = useRecipes();
   const [animate, setAnimate] = useState(false);
 
@@ -36,9 +24,7 @@ export function Recipes() {
         para você
       </h1>
 
-      <motion.div
-        initial="hidden"
-        animate="visible"
+      <div
         className={styles.recipesContainer}
       >
         <AnimatePresence>
@@ -60,7 +46,7 @@ export function Recipes() {
               </motion.div>
             ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </section>
   );
-}
+};

@@ -1,25 +1,103 @@
-.modalHeader{
+.modalHeader {
   padding: 10px 20px;
   height: 60px;
-  border-bottom: 0.5px solid rgba(162,123,60,.2);
+  border-bottom: 0.5px solid rgba(162, 123, 60, 0.2);
   display: flex;
   align-items: center;
 
-  >img{
-    width: 17px;
-    height: 18px;
+  .closeImg {
     cursor: pointer;
+    padding: 15px 15px;
   }
 
-  .divLogo{
+  > img {
+    width: 17px;
+    height: 18px;
+  }
 
+  .divLogo {
     flex: 1 0 auto;
     text-align: center;
-    .renataLogo{
+    .renataLogo {
       width: 110px;
       justify-self: center;
     }
   }
+}
+
+.modalBody {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 20px;
+  height: calc(100vh - 82px);
+
+  .favorites {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    display: block;
+    font-family: Nunito, sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 0.4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+
+    &:hover {
+      color: var(--orange-500);
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fe6868;
+      border-radius: 100%;
+      width: 24px;
+      height: 24px;
+      color: #fff;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.menu{
+  flex: 0 0 100%;
+}
+
+.socials {
+  // flex-direction: column;
+  flex: 0 0 100%;
+  align-self: flex-end;
 
 
+
+  p{
+    font-family: Nunito,sans-serif;
+    color: var(--gray-300);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .icons {
+    display: flex;
+    a {
+      > svg {
+        g {
+          transition: all 0.35s ease-in-out;
+          &:hover{fill: var(--gray-500);}
+        }
+      }
+
+      &:not(:last-child){
+        margin-right: 22px;
+      }
+    }
+  }
 }

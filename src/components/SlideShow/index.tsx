@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import styles from './styles.module.scss';
 import 'react-slideshow-image/dist/styles.css'
 
-export function SlideShow() {
+export const SlideShow:React.FC = ()=> {
   const slideImages = [
     {
       url: 'https://renata.com.br/images/receitas/157/renata-imagem-receitas-torta-salgada-de-biscoitos-agua-e-sal-1-xl.jpg',
