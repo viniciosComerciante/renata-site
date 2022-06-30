@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { MutableRefObject, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RecipeThumb } from '../RecipeThumb';
 import { useRecipes } from '../../contexts/RecipesContext';
 import styles from './styles.module.scss';
 
-export const Recipes: React.FC = () => {
+
+interface RecipeProps{
+  refRecipes : MutableRefObject<null | HTMLElement>;
+}
+
+
+export const Recipes: React.FC<RecipeProps> = ({refRecipes}) => {
   const { recipes } = useRecipes();
   const [animate, setAnimate] = useState(false);
 
@@ -17,7 +23,7 @@ export const Recipes: React.FC = () => {
   }, []);
 
   return (
-    <section className={`${styles.container} ${animate ? styles.animate : ''}`}>
+    <section className={`${styles.container} ${animate ? styles.animate : ''}`} ref={refRecipes}>
       <h1>
         Receitas
         <br />
@@ -41,7 +47,7 @@ export const Recipes: React.FC = () => {
                   category={recipe.category}
                   title={recipe.title}
                   likes={200}
-                  subtitle="teste teste"
+                  subtitle={recipe.description}
                   key={index}
                 ></RecipeThumb>
               </motion.div>

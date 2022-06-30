@@ -3,6 +3,8 @@ import { GetStaticProps } from 'next';
 import styles from './styles.module.scss';
 import 'react-slideshow-image/dist/styles.css'
 
+
+
 export const SlideShow:React.FC = ()=> {
   const slideImages = [
     {

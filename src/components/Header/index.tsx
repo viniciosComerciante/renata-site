@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { MutableRefObject, useEffect, useState } from 'react';
 import { useRecipes } from '../../contexts/RecipesContext';
 import { useRequest } from '../../hooks/useRequest';
 import { Recipe } from '../../pages/index';
@@ -8,12 +8,13 @@ import styles from './styles.module.scss';
 
 interface HeaderProps {
   onRequestOpen: () => void;
+  refRecipes: MutableRefObject<null | HTMLElement>
 }
 interface RecipesRequest {
   result: Recipe[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
+export const Header: React.FC<HeaderProps> = ({ onRequestOpen, refRecipes }) => {
   const { changeRecipes } = useRecipes();
   const { data, setUrl } = useRequest<RecipesRequest>('');
   const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -69,6 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
           <a
             onClick={e => {
               e.preventDefault();
+              refRecipes.current?.scrollIntoView({behavior: 'smooth'});
               handleChangeUrl('inspirado-no-chef');
             }}
           >
@@ -77,6 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
           <a
             onClick={e => {
               e.preventDefault();
+              refRecipes.current?.scrollIntoView({behavior: 'smooth'});
               handleChangeUrl('emocao-em-familia');
             }}
           >
@@ -85,6 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
           <a
             onClick={e => {
               e.preventDefault();
+              refRecipes.current?.scrollIntoView({behavior: 'smooth'});
               handleChangeUrl('e-pra-ja');
             }}
           >
@@ -93,6 +97,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
           <a
             onClick={e => {
               e.preventDefault();
+              refRecipes.current?.scrollIntoView({behavior: 'smooth'});
               handleChangeUrl('sinta-se-leve');
             }}
           >
@@ -101,6 +106,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
           <a
             onClick={e => {
               e.preventDefault();
+              refRecipes.current?.scrollIntoView({behavior: 'smooth'});
               handleChangeUrl('doces-emocoes');
             }}
           >
@@ -109,6 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
           <a
             onClick={e => {
               e.preventDefault();
+              refRecipes.current?.scrollIntoView({behavior: 'smooth'});
               handleChangeUrl('meus-favoritos');
             }}
           >

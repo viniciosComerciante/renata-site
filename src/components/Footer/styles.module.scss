@@ -18,6 +18,13 @@
         font-weight: 700;
         font-size: 1.25rem;
         line-height: 1.687rem;
+        li{
+          transition: all .4s;
+          cursor: pointer;
+          &:hover{
+            color: var(--gray-500);
+          }
+        }
         li:not(:last-of-type){
           margin-bottom: 30px;
         }
@@ -52,6 +59,7 @@
           width: 41px;
           height: 41px;
           margin: 0 9px;
+          cursor: pointer;
         }
       }
     }

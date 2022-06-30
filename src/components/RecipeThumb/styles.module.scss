@@ -1,5 +1,7 @@
 .thumb {
   display: flex;
+  min-height: 600px;
+  cursor: pointer;
 }
 
 .wrapper {
@@ -54,6 +56,10 @@
 }
 
 @media (min-width: 992px) and(max-width:1139px) {
+
+  .thumb{
+    min-height: 520px;
+  }
   .wrapper {
     .backgroundImg {
       max-width: 290px;
@@ -89,6 +95,7 @@
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 60px;
+    min-height: 200px;
     justify-content: center;
   }
   .wrapper {

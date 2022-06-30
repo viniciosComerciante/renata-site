@@ -5,12 +5,13 @@ import { Recipes } from '../components/Recipes';
 import { SlideShow } from '../components/SlideShow';
 import { GetServerSideProps } from 'next';
 import { useRecipes } from '../contexts/RecipesContext';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MenuModal } from '../components/MenuModal';
 
 export interface Recipe {
   _id: string;
   title: string;
+  description: string;
   category: string;
   ingredients: string;
   preparation: string;
@@ -27,6 +28,7 @@ interface HomeProps {
 export default function Home({ data }: HomeProps){
 
   const [isOpen, setIsOpen] = useState(false);
+  const refRecipes = useRef(null);
 
   function onRequestClose(){
     setIsOpen(false);
@@ -43,11 +45,11 @@ export default function Home({ data }: HomeProps){
   }, []);
   return (
     <>
-      <Header onRequestOpen={onRequestOpen}></Header>
+      <Header onRequestOpen={onRequestOpen} refRecipes={refRecipes}></Header>
       <SlideShow></SlideShow>
-      <Recipes></Recipes>
+      <Recipes refRecipes ={refRecipes}></Recipes>
       <Footer></Footer>
-      <MenuModal isOpen={isOpen} onRequestClose={onRequestClose}></MenuModal>
+      <MenuModal isOpen={isOpen} onRequestClose={onRequestClose} refRecipes={refRecipes}></MenuModal>
     </>
   );
 }

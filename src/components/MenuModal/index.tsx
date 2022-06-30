@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { MouseEventHandler, MutableRefObject, useEffect } from 'react';
 import Modal from 'react-modal';
 
 import styles from './styles.module.scss';
@@ -8,11 +8,14 @@ Modal.setAppElement('#__next');
 interface MenuModalProps {
   isOpen: boolean;
   onRequestClose?: () => void;
+  refRecipes: MutableRefObject<null | HTMLElement>
 }
 
 export const MenuModal: React.FC<MenuModalProps> = ({
   isOpen,
   onRequestClose,
+  refRecipes
+
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -22,11 +25,18 @@ export const MenuModal: React.FC<MenuModalProps> = ({
     }
   }, [isOpen]);
 
+
+  function onButtonClick(e:React.MouseEvent<HTMLElement>){
+    e.preventDefault();
+    refRecipes.current?.scrollIntoView({behavior: 'smooth'});
+    onRequestClose();
+  }
+
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      closeTimeoutMS={3000}
+      closeTimeoutMS={1000}
       //estilos adicionados no css global
       overlayClassName={`react-modal-overlay ${isOpen ? '' : 'overlayClosed'}`}
       className={`react-modal-content  ${isOpen ? '' : 'contentClosed'}`}
@@ -50,25 +60,25 @@ export const MenuModal: React.FC<MenuModalProps> = ({
         </div>
         <div className={styles.modalBody}>
           <div className={styles.menu}>
-          <a href="" title="Toque para acessar">
+          <a href="" title="Toque para acessar" onClick={onButtonClick}>
             Home
           </a>
-          <a href="" title="Toque para acessar">
+          <a href="" title="Toque para acessar" onClick={onButtonClick}>
             Inspirado no MasterChef Brasil
           </a>
-          <a href="" title="Toque para acessar">
+          <a href="" title="Toque para acessar" onClick={onButtonClick}>
             Emoção em Família
           </a>
-          <a href="" title="Toque para acessar">
+          <a href="" title="Toque para acessar" onClick={onButtonClick}>
             É Pra Já
           </a>
-          <a href="" title="Toque para acessar">
+          <a href="" title="Toque para acessar" onClick={onButtonClick}>
             Sinta-se Leve
           </a>
-          <a href="" title="Toque para acessar">
+          <a href="" title="Toque para acessar" onClick={onButtonClick}>
             Doces Emoções
           </a>
-          <a href="" title="Toque para acessar" className={styles.favorites}>
+          <a href="" title="Toque para acessar" className={styles.favorites} onClick={onButtonClick}>
             Meus Favoritos <span className={styles.badge}>2</span>
           </a>
           <a href="" title="Toque para acessar">
@@ -93,14 +103,14 @@ export const MenuModal: React.FC<MenuModalProps> = ({
               >
                 <g
                   stroke="none"
-                  stroke-width="1"
+                  strokeWidth="1"
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 >
                   <g
                     transform="translate(-72.000000, -3728.000000)"
                     fill="#FFA451"
-                    fill-rule="nonzero"
+                    fillRule="nonzero"
                   >
                     <g transform="translate(0.000000, 3142.000000)">
                       <g transform="translate(72.000000, 586.000000)">
@@ -125,14 +135,14 @@ export const MenuModal: React.FC<MenuModalProps> = ({
               >
                 <g
                   stroke="none"
-                  stroke-width="1"
+                  strokeWidth="1"
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 >
                   <g
                     transform="translate(-155.000000, -3728.000000)"
                     fill="#FFA451"
-                    fill-rule="nonzero"
+                    fillRule="nonzero"
                   >
                     <g transform="translate(0.000000, 3142.000000)">
                       <g transform="translate(155.000000, 586.000000)">
@@ -160,11 +170,11 @@ export const MenuModal: React.FC<MenuModalProps> = ({
               >
                 <g
                   stroke="none"
-                  stroke-width="1"
+                  strokeWidth="1"
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 >
-                  <g fill="#FFA451" fill-rule="nonzero">
+                  <g fill="#FFA451" fillRule="nonzero">
                     <path d="M0,20.5 C0,9.17816208 9.17816208,0 20.5,0 C31.8218379,0 41,9.17816208 41,20.5 C41,31.8218379 31.8218379,41 20.5,41 C9.17816208,41 0,31.8218379 0,20.5 Z M30.9763697,15.4375415 C30.724903,14.4714735 29.9839212,13.7107361 29.0430333,13.4525519 C27.3379303,12.9833333 20.5,12.9833333 20.5,12.9833333 C20.5,12.9833333 13.6620697,12.9833333 11.9568424,13.4525519 C11.0159546,13.7107361 10.2749728,14.4714735 10.0235061,15.4375415 C9.56666667,17.1884289 9.56666667,20.8416667 9.56666667,20.8416667 C9.56666667,20.8416667 9.56666667,24.4947777 10.0235061,26.2457918 C10.2749728,27.2118598 11.0159546,27.9725972 11.9568424,28.2309082 C13.6620697,28.7 20.5,28.7 20.5,28.7 C20.5,28.7 27.3379303,28.7 29.0430333,28.2309082 C29.9839212,27.9725972 30.724903,27.2118598 30.9763697,26.2457918 C31.4333333,24.4947777 31.4333333,20.8416667 31.4333333,20.8416667 C31.4333333,20.8416667 31.4333333,17.1884289 30.9763697,15.4375415 Z"></path>
                     <polygon points="18.45 24.6 18.45 17.7666667 23.9166667 21.1834639"></polygon>
                   </g>
