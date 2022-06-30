@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -68,9 +71,7 @@ a{
   display: block;
   position: relative;
   background-color: var(--white);
-  transition: left .6s cubic-bezier(.32,.08,.24,1),opacity .7s cubic-bezier(.32,.08,.24,1);
   -webkit-overflow-scrolling: touch;
-
   z-index: 1000;
 }
 
@@ -88,31 +89,39 @@ a{
 }
 
 .ReactModal__Overlay {
-  transition: opacity .5s;
-  transition: left .3s cubic-bezier(.32,.08,.24,1) .5s;
-  .overlayClosed{
-    transition: left .3s cubic-bezier(.32,.08,.24,1) .3s;
-  }
+  transition: opacity .4s;
+  left: -1000px;
+  opacity: 0;
 }
 
 
 .ReactModal__Content{
-  transition: left 1s cubic-bezier(.32,.08,.24,1) .2s,opacity .7s cubic-bezier(.32,.08,.24,1) .2s;
+  transition: opacity .4s;
+  left: -1000px;
+  opacity: 0;
 }
 
 .ReactModal__Content--after-open{
+  transition: left 1s cubic-bezier(.32,.08,.24,1) .2s,opacity .7s cubic-bezier(.32,.08,.24,1) .2s;
+  opacity: 1;
   left: 0;
 }
 
 .ReactModal__Content--before-close{
-  transition: left 1s cubic-bezier(.32,.08,.24,1) .2s,opacity .7s cubic-bezier(.32,.08,.24,1) .2s;
-  left: -2000px;
+  transition: left .6s cubic-bezier(.32,.08,.24,1),opacity .7s cubic-bezier(.32,.08,.24,1);
+  opacity: 0;
+  left: -1000px;
 }
 
 .ReactModal__Overlay--after-open{
+  transition: left .3s cubic-bezier(.32,.08,.24,1),opacity .6s cubic-bezier(.32,.08,.24,1);
+  opacity: 1;
   left: 0;
 }
 
 .ReactModal__Overlay--before-close{
-  left: -2000px;
+  transition: left .3s cubic-bezier(.32,.08,.24,1) .3s,opacity .6s cubic-bezier(.32,.08,.24,1) .3s;
+  opacity: 0;
+  left: -1000px;
+
 }

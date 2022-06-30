@@ -30,6 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestOpen }) => {
     this.scrollY >= lastScrollTop
       ? setIsScrollingDown(true)
       : setIsScrollingDown(false);
+    if(this.scrollY <= 0) setIsScrollingDown(false)
   }
 
   useEffect(() => {
